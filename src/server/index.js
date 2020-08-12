@@ -11,15 +11,12 @@ app.use(express.static("dist"));
 
 console.log(__dirname);
 
-//  Requiere the Alyen npm package
-var aylien = requiere("aylien_textapi");
-
 // setup Aylien enviroment variables
+//var aylienApi = new aylien({
+//  application_key: process.env.API_KEY,
+//});
 
-var aylienApi = new aylien({
-  application_id: process.env.API_ID,
-  application_key: process.env.API_KEY,
-});
+let appKey = process.env.API_KEY;
 
 app.get("/", function (req, res) {
   // res.sendFile('dist/index.html')
