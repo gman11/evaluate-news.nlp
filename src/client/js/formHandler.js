@@ -1,16 +1,34 @@
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
 
   // check what text was put into the form field
+  //let formText = "\"{'message':";
+  //formText = formText + "'" + document.getElementById("name").value + "'}\"";
+  //  Client.checkForName(formText);
   let formText = document.getElementById("name").value;
-  Client.checkForName(formText);
+  let jPost = {
+    message: "testing message",
+  };
 
-  console.log("::: Form Submitted :::");
-  fetch("http://localhost:8081/test")
-    .then((res) => res.json())
-    .then(function (res) {
-      document.getElementById("results").innerHTML = res.message;
-    });
+  jPost.message = formText;
+
+  console.log("::: Form Submitted :::  " + formText);
+  const res = await fetch("http://localhost:8081/test", {
+    method: "POST", // *GET, POST, PUT, DELETE, etc.
+    credentials: "same-origin", // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(jPost),
+  });
+
+  try {
+    const data = await res.json();
+    console.log(data);
+    document.getElementById("results").innerHTML = data.message;
+  } catch (error) {
+    console.log("Error getting stuff", error);
+  }
 }
 
 export { handleSubmit };
