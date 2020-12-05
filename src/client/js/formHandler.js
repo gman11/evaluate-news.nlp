@@ -6,6 +6,7 @@ async function handleSubmit(event) {
   //formText = formText + "'" + document.getElementById("name").value + "'}\"";
   //  Client.checkForName(formText);
   let formText = document.getElementById("name").value;
+  
   let jPost = {
     message: "testing message",
   };
@@ -24,8 +25,8 @@ async function handleSubmit(event) {
 
   try {
     const data = await res.json();
-    console.log(data);
-    document.getElementById("results").innerHTML = data.message;
+    console.log("return data " + data.agreement + " " + data.score_tag);
+    document.getElementById("results").innerHTML ="Results: " +  data.agreement + " " + data.score_tag;
   } catch (error) {
     console.log("Error getting stuff", error);
   }
