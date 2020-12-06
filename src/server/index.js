@@ -28,10 +28,7 @@ console.log(__dirname);
 let appKey = process.env.API_KEY;
 let textMsg = "";
 
-///sentiment-2.1?key=a659f0e5e928bdc70da5a045bdbdd3b4&lang=en&txt=I%20love%20programming%20&model=general
-//"http://api.meaningcloud.com/sentiment-2.1"
-//const url = new URL(options);
-//console.log(url);
+
 
 async function getTextAnalysis(req, res) 
 {
@@ -75,6 +72,6 @@ app.listen(8081, function () {
 });
 
 
-app.post("/test", getTextAnalysis);
+app.post("/getInfo", getTextAnalysis);
 
 

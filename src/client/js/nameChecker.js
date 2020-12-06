@@ -1,10 +1,18 @@
 function checkForName(inputText) {
   console.log("::: Running checkForName :::", inputText);
-  let names = ["Picard", "Janeway", "Kirk", "Archer", "Georgiou"];
+ 
+  //const btn = document.getElementById("submit");
+  //btn.s
 
-  if (names.includes(inputText)) {
-    alert("Welcome, Captain!");
+  if (inputText === "") {
+    alert("Input can't be empty");
+    const txtBox =  document.getElementById("name");
+    txtBox.focus();
+    return false;
+
   }
+
+  return true;
 }
 
 export { checkForName };
