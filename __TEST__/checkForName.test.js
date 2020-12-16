@@ -1,4 +1,6 @@
-const checkForName =  require ("../src/client/js/nameChecker");
+//const checkForName =  require ("../src/client/js/nameChecker");
+// Import the js file to test
+import { checkForName} from "../src/client/js/nameChecker"
 // The describe() function takes two arguments - a string description, and a test suite as a callback function.  
 // A test suite may contain one or more related tests    
 describe("Testing the user input", () => {
@@ -10,5 +12,7 @@ describe("Testing the user input", () => {
            const output = true;
            // The expect() function, in combination with a Jest matcher, is used to check if the function produces the expected output
            // The general syntax is `expect(myFunction(arg1, arg2, ...)).toEqual(expectedValue);`, where `toEqual()` is a matcher
-           expect(checkForName(input)).toHaveReturned(output);
-})});
+           expect(checkForName(input)).toBeTruthy();
+});
+
+});
